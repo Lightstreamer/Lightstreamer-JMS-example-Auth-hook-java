@@ -61,11 +61,10 @@ More details and comments on how the auth/auth cycle accomplished is available i
 
 * The project includes two different MetadataProvider implementations; replace `AuthHook` with `AuthHookWithAuthCache` to use
 the alternative version.
-* The project relies on three different JMS Gateway Demo Services to show specific authorizations, they must be configured and
+* The project relies on two different JMS Gateway Demo Services to show specific authorizations, they must be configured and
 running for the demo to work properly. Please refer to the following projects:
   * [Lightstreamer JMS Gateway - Stock-List Demo - Java (JMS) Service](https://github.com/Weswit/Lightstreamer-JMS-example-StockList-service-java)
   * [Lightstreamer JMS Gateway - Portfolio Demo - Java (JMS) Service](https://github.com/Weswit/Lightstreamer-JMS-example-Portfolio-service-java)
-  * [Lightstreamer JMS Gateway - Basic Chat Demo - Java (JMS) Service](https://github.com/Weswit/Lightstreamer-JMS-example-Chat-service-java)
 
 The JMS Gateway Adapter must also be configured appropriately to use the provided hook. Its `adapters.xml` file should look like:
 

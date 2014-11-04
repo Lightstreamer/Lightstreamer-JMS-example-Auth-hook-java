@@ -26,9 +26,7 @@ public class AuthorizationRequest {
         // Authorizations for user "user1":
         Set<String> userSet= Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>());
         userSet.add("stocksTopic");
-        userSet.add("stocksQueue");
         userSet.add("chatTopic");
-        userSet.add("chatQueue");
         
         AUTHORIZATIONS.put("user1", userSet);
         
@@ -38,11 +36,9 @@ public class AuthorizationRequest {
         // Authorizations for user "leto":
         userSet= Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>());
         userSet.add("stocksTopic");
-        userSet.add("stocksQueue");
         userSet.add("portfolioTopic");
         userSet.add("portfolioQueue");
         userSet.add("chatTopic");
-        userSet.add("chatQueue");
 
         AUTHORIZATIONS.put("leto", userSet);
         
@@ -55,7 +51,6 @@ public class AuthorizationRequest {
         // Authorizations for user "lucky":
         userSet= Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>());
         userSet.add("stocksTopic");
-        userSet.add("stocksQueue");
         
         AUTHORIZATIONS.put("lucky", userSet);
     }
@@ -93,8 +88,12 @@ public class AuthorizationRequest {
             return AuthorizationResult.PORTFOLIO_ACCESS_NOT_AUTHORIZED;
         else if (destinationName.startsWith("chat"))
             return AuthorizationResult.CHAT_ACCESS_NOT_AUTHORIZED;
-        else 
-            return AuthorizationResult.UNKNOWN_DESTINATION;
+        else {
+            
+            // Here we allow unknown destination names as they may be
+            // temporary queues or topics
+            return AuthorizationResult.OK;
+        }
     }
     
     public static Map<String, AuthorizationResult> getUserAuthorizations(String user) {
@@ -110,11 +109,9 @@ public class AuthorizationRequest {
         Map<String, AuthorizationResult> results= new ConcurrentHashMap<String, AuthorizationResult>();
         if (authDestinations != null) {
             results.put("stocksTopic", authDestinations.contains("stocksTopic") ? AuthorizationResult.OK : AuthorizationResult.STOCKS_ACCESS_NOT_AUTHORIZED);
-            results.put("stocksQueue", authDestinations.contains("stocksQueue") ? AuthorizationResult.OK : AuthorizationResult.STOCKS_ACCESS_NOT_AUTHORIZED);
             results.put("portfolioTopic", authDestinations.contains("portfolioTopic") ? AuthorizationResult.OK : AuthorizationResult.PORTFOLIO_ACCESS_NOT_AUTHORIZED);
             results.put("portfolioQueue", authDestinations.contains("portfolioQueue") ? AuthorizationResult.OK : AuthorizationResult.PORTFOLIO_ACCESS_NOT_AUTHORIZED);
             results.put("chatTopic", authDestinations.contains("chatTopic") ? AuthorizationResult.OK : AuthorizationResult.CHAT_ACCESS_NOT_AUTHORIZED);
-            results.put("chatQueue", authDestinations.contains("chatQueue") ? AuthorizationResult.OK : AuthorizationResult.CHAT_ACCESS_NOT_AUTHORIZED);
         }
 
         return results;

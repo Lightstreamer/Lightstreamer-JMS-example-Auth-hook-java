@@ -152,8 +152,12 @@ public class AuthHookWithAuthCache extends JmsGatewayHook {
                 return false; // May happen if the authorization cache is taking too long to fill
 
             AuthorizationResult result= authorizations.get(destinationName);
-            if (result == null)
-                throw new HookException("Unauthorized access: user '" + user + "' can't receive messages from destination '" + destinationName + "'", AuthorizationResult.UNKNOWN_DESTINATION.toString());
+            if (result == null) {
+
+                // Here we allow unknown destination names 
+                // as they may be temporary queues or topics
+                return true;
+            }
             
             if (result != AuthorizationResult.OK)
                 throw new HookException("Unauthorized access: user '" + user + "' can't receive messages from destination '" + destinationName + "'", result.toString());
@@ -185,8 +189,12 @@ public class AuthHookWithAuthCache extends JmsGatewayHook {
                 return false; // May happen if user has no authorizations at all
 
             AuthorizationResult result= authorizations.get(topicName);
-            if (result == null)
-                throw new HookException("Unauthorized access: user '" + user + "' can't subscribe to topic '" + topicName + "'", AuthorizationResult.UNKNOWN_DESTINATION.toString());
+            if (result == null) {
+
+                // Here we allow unknown destination names 
+                // as they may be temporary queues or topics
+                return true;
+            }
             
             if (result != AuthorizationResult.OK)
                 throw new HookException("Unauthorized access: user '" + user + "' can't subscribe to topic '" + topicName + "'", result.toString());
@@ -218,8 +226,12 @@ public class AuthHookWithAuthCache extends JmsGatewayHook {
                 return false; // May happen if user has no authorizations at all
 
             AuthorizationResult result= authorizations.get(destinationName);
-            if (result == null)
-                throw new HookException("Unauthorized access: user '" + user + "' can't send messages to destination '" + destinationName + "'", AuthorizationResult.UNKNOWN_DESTINATION.toString());
+            if (result == null) {
+
+                // Here we allow unknown destination names 
+                // as they may be temporary queues or topics
+                return true;
+            }
             
             if (result != AuthorizationResult.OK)
                 throw new HookException("Unauthorized access: user '" + user + "' can't send messages to destination '" + destinationName + "'", result.toString());
