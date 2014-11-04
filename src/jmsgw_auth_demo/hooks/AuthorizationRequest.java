@@ -90,8 +90,8 @@ public class AuthorizationRequest {
             return AuthorizationResult.CHAT_ACCESS_NOT_AUTHORIZED;
         else {
             
-            // Here we allow unknown destination names as they may be
-            // temporary queues or topics
+            // Here we allow unknown destination names 
+            // as they may be temporary queues or topics
             return AuthorizationResult.OK;
         }
     }
