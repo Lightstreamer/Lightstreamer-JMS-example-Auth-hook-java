@@ -217,7 +217,6 @@ pip-log.txt
 # SVN
 .svn/
 
-lib/log4j-1.2.15.jar
 lib/jms.jar
 lib_test
 build_resources
