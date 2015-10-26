@@ -63,8 +63,8 @@ More details and comments on how the auth/auth cycle accomplished is available i
 the alternative version.
 * The project relies on two different JMS Gateway Demo Services to show specific authorizations, they must be configured and
 running for the demo to work properly. Please refer to the following projects:
-  * [Lightstreamer JMS Gateway - Stock-List Demo - Java (JMS) Service](https://github.com/Weswit/Lightstreamer-JMS-example-StockList-service-java)
-  * [Lightstreamer JMS Gateway - Portfolio Demo - Java (JMS) Service](https://github.com/Weswit/Lightstreamer-JMS-example-Portfolio-service-java)
+  * [Lightstreamer JMS Gateway - Stock-List Demo - Java (JMS) Service](https://github.com/Lightstreamer/Lightstreamer-JMS-example-StockList-service-java)
+  * [Lightstreamer JMS Gateway - Portfolio Demo - Java (JMS) Service](https://github.com/Lightstreamer/Lightstreamer-JMS-example-Portfolio-service-java)
 
 The JMS Gateway Adapter must also be configured appropriately to use the provided hook. Its `adapters.xml` file should look like:
 
@@ -113,7 +113,7 @@ of your JMS Gateway installation.
 
 ## Build
 
-To build your own version of `JMS_Auth_demo.jar`, instead of using the one provided in the `deploy.zip` file from the [Install](https://github.com/Weswit/Lightstreamer-JMS-example-Auth-hook-java#install) section above, follow these steps.
+To build your own version of `JMS_Auth_demo.jar`, instead of using the one provided in the `deploy.zip` file from the [Install](https://github.com/Lightstreamer/Lightstreamer-JMS-example-Auth-hook-java#install) section above, follow these steps.
 
 * Download this project.
 * Get the `ls-jms-hook-interface.jar` file from the [latest Lightstreamer JMS Gateway distribution](http://www.lightstreamer.com/download), and copy it into the
@@ -132,11 +132,11 @@ To build your own version of `JMS_Auth_demo.jar`, instead of using the one provi
 
 ### Clients Using This Adapter
 
-[Follow this link for a list of clients for this adapter](https://github.com/Weswit?query=Lightstreamer-JMS-example-auth-client)
+[Follow this link for a list of clients for this adapter](https://github.com/Lightstreamer?query=Lightstreamer-JMS-example-auth-client)
 
 ### Related Projects
 
-* [Lightstreamer - Authentication and Authorization Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-AuthMetadata-adapter-java)
+* [Lightstreamer - Authentication and Authorization Demo - Java Adapter](https://github.com/Lightstreamer/Lightstreamer-example-AuthMetadata-adapter-java)
 
 ## Lightstreamer Compatibility Notes
 
