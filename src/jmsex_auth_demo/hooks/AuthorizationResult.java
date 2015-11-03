@@ -1,7 +1,7 @@
-package jmsgw_auth_demo.hooks;
+package jmsex_auth_demo.hooks;
 
 public enum AuthorizationResult {
-    
+
     // The string-ification of these enum names are used
     // as an error code, identified by the client to react
     // appropriately on the user interface
