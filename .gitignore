@@ -217,11 +217,5 @@ pip-log.txt
 # SVN
 .svn/
 
-lib/jms.jar
-lib_test
-build_resources
-deploy.zip
-ls-jms-hook-interface.jar
 sequence_diagram.vpp
-Deployment_LS
 /target/
