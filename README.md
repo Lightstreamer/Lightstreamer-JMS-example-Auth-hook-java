@@ -88,12 +88,7 @@ The JMS Extender must also be configured appropriately to use the provided hook.
 
     </common>
 
-	<!-- Sample JMS connector configured for HornetQ (AKA JBoss Messaging). -->
-    <jms_connector name="HornetQ">
-
-        [...]
-
-    </jms_connector>
+    ...
 
 </jms_connectors_conf>
 ```
@@ -102,9 +97,9 @@ The JMS Extender must also be configured appropriately to use the provided hook.
 
 If you want to install this Demo in your local Lightstreamer JMS Extender, follow these steps.
 
-* Download and install the Lightstreamer JMS Extender. Please refer to Lightstreamer web site [download page](http://download.lightstreamer.com/#jms) to find *Lightstreamer JMS Extender* download packages.
-* Make sure that the JMS Extender is not running.
-* Get the deploy.zip file, from the releases of this project, unzip it, go to the `Deployment_LS` folder and copy the `JMS_Auth_demo.jar` from `JMS/lib` into `jms_connectors/lib` folder
+* Download and install Lightstreamer JMS Extender. Please refer to Lightstreamer web site [download page](https://lightstreamer.com/download/#jms) to find the *Lightstreamer JMS Extender* download packages.
+* Make sure that JMS Extender is not running.
+* Get the `deploy.zip` file, from the releases of this project, unzip it, go to the `Deployment_LS` folder and copy the `JMS_Auth_demo-2.0.0.jar` from `lib` into the `jms_connectors/lib` folder
 of your JMS Extender installation.
 * Edit the `jms_connectors/jms_connectors_conf.xml` file of your JMS Extender installation by adding the appropriate hook class in the `<param name="hook">` tag of the `<common>` section:
   * `<param name="hook">jmsex_auth_demo.hooks.AuthHook</param>` for the direct version;
@@ -113,24 +108,16 @@ of your JMS Extender installation.
 
 ## Build
 
-To build your own version of `JMS_Auth_demo.jar`, instead of using the one provided in the `deploy.zip` file from the [Install](https://github.com/Lightstreamer/Lightstreamer-JMS-example-Auth-hook-java#install) section above, follow these steps.
+To build your own version of `JMS_Auth_demo-2.0.0.jar`, instead of using the one provided in the `deploy.zip` file from the [Install](https://github.com/Lightstreamer/Lightstreamer-JMS-example-Auth-hook-java#install) section above, follow these steps:
 
-* Download this project.
-* Get the `ls-jms-hook-interface.jar` file from the [latest Lightstreamer JMS Extender distribution](http://www.lightstreamer.com/download/#jms), and copy it into the
-`lib` directory.
-* Assuming `javac` and `jar` are available on the path, from the command line run:
+* Clone this project
 
-```sh
-javac -classpath ./lib/ls-jms-hook-interface.jar -d ./classes ./src/jmsex_auth_demo/hooks/*.java
-```
+* Assuming that `maven` is installed on your machine, build the hook by executing the package goal:
+    ```sh
+    $ mvn package
+    ```
 
-* Then create the jar:
-
-```sh
-jar cvf JMS_Auth_demo.jar -C classes ./
-```
-
-* Copy the just compiled `JMS_Auth_demo.jar` in the `jms_connectors/lib` folder of your Lightstreamer JMS Extender installation.
+* Locate the jar file (which should be in the `target` folder) and drop it into the `jms_connectors/lib` folder of your Lightstreamer JMS Extender installation
 
 ## See Also
 
@@ -144,4 +131,4 @@ jar cvf JMS_Auth_demo.jar -C classes ./
 
 ## JMS Extender Compatibility Notes
 
-* Compatible with Lightstreamer JMS Extender SDK for Java Hooks since 1.5 or newer.
+* Compatible with Lightstreamer JMS Extender SDK for Java Hooks since 2.0.0 or newer.

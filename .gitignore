@@ -224,3 +224,4 @@ deploy.zip
 ls-jms-hook-interface.jar
 sequence_diagram.vpp
 Deployment_LS
+/target/
