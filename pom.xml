@@ -13,14 +13,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <repositories>
-    <repository>
-      <id>lightstreamer</id>
-      <name>Lightstreamer repository</name>
-      <url>https://www.lightstreamer.com/repo/maven</url>
-    </repository>
-  </repositories>
-
   <dependencies>
     <dependency>
       <groupId>com.lightstreamer</groupId>
